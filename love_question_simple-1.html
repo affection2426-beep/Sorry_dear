@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Question</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;overflow:hidden;background:linear-gradient(135deg,#fff4f7,#ffdfe9,#fff8fa);color:#222}
+.card{width:min(90%,410px);padding:36px 24px;text-align:center;background:white;border-radius:24px;box-shadow:0 18px 45px rgba(170,70,100,.16)}
+h1{margin:0 0 14px;font-size:27px;color:#d64f78}
+p{font-size:17px;line-height:1.55;color:#444}
+.buttons{position:relative;height:100px;margin-top:24px}
+button{border:0;border-radius:12px;padding:13px 27px;font-size:16px;font-weight:700;position:absolute;top:15px;cursor:pointer}
+#yes{left:22%;background:#f1f1f1}
+#no{right:22%;background:#222;color:white}
+#message{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<div id="question">
+<h1>Do You Love Me?</h1>
+<p>Just one simple question.<br>Choose carefully.</p>
+<div class="buttons"><button id="yes">YES</button><button id="no">NO</button></div>
+</div>
+
+<div id="message">
+<h1>I Knew It.</h1>
+<p>
+I knew you would choose this.<br><br>
+You can lie to me, but I know you too well.<br><br>
+Anyway, you are stuck with me now.
+</p>
+</div>
+</div>
+
+<script>
+const yes=document.getElementById("yes"),no=document.getElementById("no"),area=document.querySelector(".buttons"),question=document.getElementById("question"),message=document.getElementById("message");
+function moveYes(){const x=area.clientWidth-yes.offsetWidth,y=area.clientHeight-yes.offsetHeight;yes.style.left=Math.max(0,Math.random()*x)+"px";yes.style.top=Math.max(0,Math.random()*y)+"px"}
+yes.addEventListener("mouseenter",moveYes);
+yes.addEventListener("touchstart",e=>{e.preventDefault();moveYes()});
+yes.addEventListener("click",moveYes);
+no.addEventListener("click",()=>{question.style.display="none";message.style.display="block"});
+</script>
+</body>
+</html>
