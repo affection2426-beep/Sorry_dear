@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sorry Dear 🥺💗</title>
+<style>
+body{
+margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;
+font-family:Arial;background:linear-gradient(135deg,#ffe1ea,#fff3d6);
+overflow:hidden
+}
+.card{
+width:85%;max-width:400px;text-align:center;background:white;
+padding:35px 25px;border-radius:28px;box-shadow:0 10px 35px #0002
+}
+.heart{font-size:55px}
+h1{color:#e75480}
+p{color:#555;font-size:17px;line-height:1.6}
+button{
+border:0;border-radius:30px;padding:13px 25px;font-size:17px;
+font-weight:bold;box-shadow:0 4px 10px #0002
+}
+#yes{background:#ff6f91;color:white}
+#no{background:#eee;color:#555;position:absolute}
+.buttons{height:100px;position:relative;margin-top:20px}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+<div class="card">
+
+<div id="start">
+<div class="heart">🥺💗</div>
+
+<h1>Sorry Dear...</h1>
+
+<p>
+Okay okay… maan liya 😭😂<br>
+Meri galti thi. Ab itna attitude mat dikhao na 🥹❤️<br><br>
+
+<strong>Hu tane maf karu chhu</strong> bolvu hoy to…<br>
+<strong>YES</strong> par click karo 😌💗
+</p>
+
+<div class="buttons">
+<button id="yes">YES ❤️</button>
+<button id="no">NO 😒</button>
+</div>
+
+<small>P.S. NO button ne already khabar chhe ke eni aukaat nathi 😂</small>
+</div>
+
+<div id="done" class="hidden">
+<div class="heart">😭❤️</div>
+<h1>YAYYY! 🥹💗</h1>
+
+<p>
+Thank youuu! 😭😂<br>
+Finally hu bachyo/bachi! 🫶🏻<br><br>
+
+<strong>Sorry accepted = Friendship saved successfully ✅😂</strong><br><br>
+Have no more khijvanu, okay? 😌❤️
+</p>
+</div>
+
+</div>
+
+<script>
+const no=document.getElementById("no");
+const box=document.querySelector(".buttons");
+
+function escape(){
+let x=Math.random()*(box.clientWidth-no.offsetWidth);
+let y=Math.random()*(box.clientHeight-no.offsetHeight);
+no.style.left=x+"px";
+no.style.top=y+"px";
+}
+
+no.addEventListener("mouseenter",escape);
+no.addEventListener("touchstart",function(e){
+e.preventDefault();escape();
+});
+
+document.getElementById("yes").onclick=function(){
+document.getElementById("start").classList.add("hidden");
+document.getElementById("done").classList.remove("hidden");
+};
+</script>
+
+</body>
+  </html>
