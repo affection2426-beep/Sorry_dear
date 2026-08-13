@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Dear 🥺💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  font-family:Arial,sans-serif; background:linear-gradient(135deg,#ffe4ec,#fff4d9);
+  overflow:hidden;
+}
+.card{
+  width:min(90%,420px); padding:35px 25px; text-align:center; background:#ffffffdd;
+  border-radius:28px; box-shadow:0 15px 40px #0002; position:relative;
+}
+.heart{font-size:55px; animation:beat 1s infinite}
+h1{color:#e75480;margin:8px 0 15px}
+p{color:#555;font-size:17px;line-height:1.55}
+.buttons{height:110px;position:relative;margin-top:20px}
+button{
+  border:0;border-radius:30px;padding:13px 27px;font-size:17px;font-weight:bold;
+  cursor:pointer;box-shadow:0 5px 12px #0002;
+}
+#yes{background:#ff6f91;color:white}
+#no{background:#eee;color:#555;position:absolute;left:52%;top:5px}
+.hidden{display:none}
+.final{font-size:22px;color:#e75480;font-weight:bold}
+.small{font-size:13px;color:#999}
+@keyframes beat{50%{transform:scale(1.12)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="main">
+    <div class="heart">🥺💗</div>
+    <h1>Sorry Dear...</h1>
+    <p>
+      Okay okay… maan liya 😭😂<br>
+      Meri galti thi. Ab itna attitude mat dikhao na! 🥹<br><br>
+      <b>Hu tane maf karu chhu</b> bolvu hoy to…<br>
+      <b>YES</b> par click karo 😌❤️
+    </p>
+    <div class="buttons">
+      <button id="yes">YES ❤️</button>
+      <button id="no">NO 😒</button>
+    </div>
+    <div class="small">P.S. NO button ne already khabar chhe ke eni aukaat nathi 😂</div>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="heart">😭❤️</div>
+    <div class="final">YAYYY! 🥹💗</div>
+    <p>
+      Thank youuu! 😭😂<br>
+      Finally hu bachyo/bachi!<br><br>
+      <b>Sorry accepted = Friendship saved successfully ✅😂</b><br>
+      Have no more khijvanu, okay? 🫶🏻
+    </p>
+  </div>
+</div>
+
+<script>
+const no = document.getElementById("no");
+const box = document.querySelector(".buttons");
+
+function runAway(){
+  const maxX = box.clientWidth - no.offsetWidth;
+  const maxY = box.clientHeight - no.offsetHeight;
+  no.style.left = Math.max(0, Math.random()*maxX) + "px";
+  no.style.top = Math.max(0, Math.random()*maxY) + "px";
+}
+no.addEventListener("mouseenter", runAway);
+no.addEventListener("touchstart", function(e){ e.preventDefault(); runAway(); });
+
+document.getElementById("yes").addEventListener("click",()=>{
+  document.getElementById("main").classList.add("hidden");
+  document.getElementById("done").classList.remove("hidden");
+});
+</script>
+</body>
+</html>
